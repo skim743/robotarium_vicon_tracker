@@ -1,0 +1,22 @@
+version: '3.0'
+services:
+  tracker:
+    restart: unless-stopped
+    image: robotarium:vicon_tracker
+    volumes:
+      - /home/robotarium-workstation/git/robotarium_nodes_docker/services/vicon_tracker/config/node_desc_tracker.json:/code/descriptor/desc.json:rw
+      - /home/robotarium-workstation/git/robotarium_nodes_docker/services/vicon_tracker/tracker_node.py:/code/tracker_node.py:rw
+    command:
+       - "sh"
+#      - "python3"
+#      - "/code/tracker_node.py"
+#      - "-host"
+#      - "192.168.1.8:1884"
+#      - "-port"
+#      - "1884"
+#      - "-interval"
+#      - "33"
+#      - "/code/descriptor/desc.json"
+# python3 /code/tracker_node.py -host 192.168.1.8:1884 -port 1884 -interval 33 /code/descriptor/desc.json
+    network_mode: "host"
+    tty: true

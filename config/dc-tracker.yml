@@ -1,0 +1,20 @@
+version: '3.0'
+services:
+  tracker:
+    restart: unless-stopped
+    image: robotarium:vicon_tracker
+    volumes:
+      - ${ROBO_PATH}services/vicon_tracker/config/node_desc_tracker.json:/code/descriptor/desc.json
+      - ${ROBO_PATH}services/vicon_tracker/tracker_node.py:/code/tracker_node.py
+    command:
+      - "python3"
+      - "/code/tracker_node.py"
+      - "-host"
+      - ${ROBOTARIUM_SERVER_IP}
+      - "-port"
+      - "1884"
+      - "-interval"
+      - "33"
+      - "/code/descriptor/desc.json"
+    network_mode: "host"
+    tty: true

@@ -1,0 +1,28 @@
+{
+	"end_point": "overhead_tracker",
+    	"links": 
+	{
+		"/all_robot_pose_data": {"type" : "STREAM"}
+	},
+	"requests": 
+	[
+		{"link": "7/status",
+		 "required": false,
+		 "type": "DATA"},
+		{"link": "10/status",
+ 		 "required": false,
+ 		 "type": "DATA"},
+ 		 {"link": "13/status",
+		 "required": false,
+		 "type": "DATA"},
+		 {"link": "14/status",
+		 "required": false,
+		 "type": "DATA"},
+		 {"link": "15/status",
+		 "required": false,
+		 "type": "DATA"},
+		 {"link": "16/status",
+		 "required": false,
+		 "type": "DATA"}
+ 	]
+}
