@@ -12,6 +12,12 @@
 		{"link": "10/status",
  		 "required": false,
  		 "type": "DATA"},
+ 		 {"link": "11/status",
+ 		 "required": false,
+ 		 "type": "DATA"},
+ 		 {"link": "12/status",
+ 		 "required": false,
+ 		 "type": "DATA"},
  		 {"link": "13/status",
 		 "required": false,
 		 "type": "DATA"},
@@ -23,6 +29,9 @@
 		 "type": "DATA"},
 		 {"link": "16/status",
 		 "required": false,
-		 "type": "DATA"}
+		 "type": "DATA"},
+		 {"link": "17/status",
+ 		 "required": false,
+ 		 "type": "DATA"}
  	]
 }
