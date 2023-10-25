@@ -65,6 +65,7 @@ def main():
     parser.add_argument("-port", type=int, help="MQTT Port", default=1884)
     parser.add_argument("-host", help="MQTT Host IP", default="localhost")
     parser.add_argument("-interval", type=int, help="Publishing interval in milliseconds", default=16)
+    parser.add_argument("-tracker_host", help="Tracking computer (VRPN) IP", default="192.168.10.1")
 
     args = parser.parse_args()
 
@@ -145,7 +146,7 @@ def main():
     robot_data_thread.start()
 
     # Create all VRPN callbacks for receiving position data
-    vrpn_tuples = {x: (vrpn.receiver.Tracker(x+"@192.168.1.4"), create_vrpn_handler(x)) for x in robots}
+    vrpn_tuples = {x: (vrpn.receiver.Tracker(x+"@"+args.tracker_host), create_vrpn_handler(x)) for x in robots}
     for (tracker, tracker_cb) in vrpn_tuples.values():
         tracker.register_change_handler(None, tracker_cb, "position")
 
